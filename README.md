@@ -1,38 +1,90 @@
-# DIO - Trilha .NET - Fundamentos
+# Requisitos
+- .NET 6.0 ou superior instalado
+- Terminal PowerShell ou CMD
+
+# Sistema de Estacionamento
+
+Desafio de projeto proposto pela DIO - Trilha .NET - Fundamentos  
 www.dio.me
 
-## Desafio de projeto
-Para este desafio, você precisará usar seus conhecimentos adquiridos no módulo de fundamentos, da trilha .NET da DIO.
-
 ## Contexto
-Você foi contratado para construir um sistema para um estacionamento, que será usado para gerenciar os veículos estacionados e realizar suas operações, como por exemplo adicionar um veículo, remover um veículo (e exibir o valor cobrado durante o período) e listar os veículos.
+Você foi contratado para construir um sistema para um estacionamento, que será usado para gerenciar os veículos estacionados e realizar operações como adicionar, remover (com cálculo do valor cobrado) e listar veículos.
 
-## Proposta
-Você precisará construir uma classe chamada "Estacionamento", conforme o diagrama abaixo:
-![Diagrama de classe estacionamento](diagrama_classe_estacionamento.png)
+## Diagrama de Funcionamento
+![Diagrama de Classe Estacionamento](diagrama_classe_estacionamento.png)
 
-A classe contém três variáveis, sendo:
+## Estrutura da Classe
+A classe `Estacionamento` contém:
+- **precoInicial**: decimal. Preço cobrado para deixar o veículo estacionado.
+- **precoPorHora**: decimal. Preço por hora de permanência.
+- **veiculos**: lista de string, representando as placas dos veículos estacionados.
 
-**precoInicial**: Tipo decimal. É o preço cobrado para deixar seu veículo estacionado.
+### Métodos
+- **AdicionarVeiculo**: Recebe a placa digitada pelo usuário e guarda na lista de veículos.
+- **RemoverVeiculo**: Verifica se o veículo está estacionado, pede a quantidade de horas, calcula o valor e exibe ao usuário.
+- **ListarVeiculos**: Lista todos os veículos presentes. Se não houver, exibe "Não há veículos estacionados".
 
-**precoPorHora**: Tipo decimal. É o preço por hora que o veículo permanecer estacionado.
+## Execução
 
-**veiculos**: É uma lista de string, representando uma coleção de veículos estacionados. Contém apenas a placa do veículo.
+O sistema apresenta um menu interativo. Basta digitar o número da opção desejada e seguir as instruções na tela:
 
-A classe contém três métodos, sendo:
-
-**AdicionarVeiculo**: Método responsável por receber uma placa digitada pelo usuário e guardar na variável **veiculos**.
-
-**RemoverVeiculo**: Método responsável por verificar se um determinado veículo está estacionado, e caso positivo, irá pedir a quantidade de horas que ele permaneceu no estacionamento. Após isso, realiza o seguinte cálculo: **precoInicial** * **precoPorHora**, exibindo para o usuário.
-
-**ListarVeiculos**: Lista todos os veículos presentes atualmente no estacionamento. Caso não haja nenhum, exibir a mensagem "Não há veículos estacionados".
-
-Por último, deverá ser feito um menu interativo com as seguintes ações implementadas:
 1. Cadastrar veículo
 2. Remover veículo
 3. Listar veículos
 4. Encerrar
 
+## Como Executar o Projeto
+1. Abra o terminal (PowerShell) e navegue até a raiz do projeto:
+   ```powershell
+   cd c:\Users\Karina\projetos\trilha-net-fundamentos-desafio
+   ```
+2. Execute o projeto com o comando:
+   ```powershell
+   dotnet run --project .\DesafioFundamentos\DesafioFundamentos.csproj
+   ```
 
-## Solução
-O código está pela metade, e você deverá dar continuidade obedecendo as regras descritas acima, para que no final, tenhamos um programa funcional. Procure pela palavra comentada "TODO" no código, em seguida, implemente conforme as regras acima.
+## Exemplo de Uso
+
+### Cadastro de veículo
+```
+Bem-vindo ao nosso estacionamento!
+Política de cobrança: Valor inicial R$ 5,00 + R$ 2,00 por hora.
+Digite a placa do veículo para estacionar:
+ABC1234
+Digite o modelo do veículo:
+...
+```
+
+### Remoção de veículo
+```
+Digite a placa do veículo para remover:
+ABC1234
+Veículo encontrado: Placa: ABC1234, Modelo: ..., Cor: ..., Ano: ...
+Digite a quantidade de horas que o veículo permaneceu estacionado:
+4
+Memória de cálculo:
+Valor inicial: R$ 5
+Valor por hora: R$ 2
+Quantidade de horas: 4
+Cálculo: R$ 5 + (R$ 2 x 4)
+Valor total a ser pago: R$ 13
+Digite o valor pago:
+13
+Recibo:
+Placa: ABC1234
+Modelo: ...
+Cor: ...
+Ano: ...
+Tempo: 4 hora(s)
+Valor pago: 13
+Obrigado por utilizar nosso estacionamento.
+```
+
+## Propósito do Treinamento
+Este projeto foi realizado para consolidar os conhecimentos adquiridos na trilha do DIO Bootcamp Deal Group AI Centric .Net, proporcionando uma experiência prática e divertida.
+
+## Agradecimentos
+Projeto realizado por Karina Nascimento.
+
+Meus sinceros agradecimentos ao professor Leonardo Buta, à equipe DIO e ao Deal Group por proporcionarem uma jornada de aprendizado transformadora, repleta de desafios, inspiração e crescimento profissional. Obrigada por acreditarem no potencial dos alunos, por compartilharem conhecimento com paixão e por abrirem portas para novas oportunidades. Este projeto é resultado do incentivo, dedicação e visão de todos vocês. Que venham muitos outros desafios e conquistas!
+
